@@ -22,7 +22,7 @@ export const Home = () => {
                     <NavbarToggler onClick={toggleNavbar} className="me-2" />
                     <Collapse isOpen={!collapsed} navbar>
                         <Nav navbar className='ms-auto'>
-                            <NavItem>
+                            <NavItem className='hover:bg-violet-400'>
                                 <NavLink to="/">About</NavLink>
                             </NavItem>
                             <NavItem>
