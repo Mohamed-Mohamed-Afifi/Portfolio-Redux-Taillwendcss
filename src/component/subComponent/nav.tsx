@@ -3,7 +3,7 @@ import {Navbar} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart,faUser } from '@fortawesome/free-solid-svg-icons';
-import LogsBtn from './LogsBtn';
+import LogsBtn from './LogsBtn.tsx';
 const Nave = () => {
     // const [collapsed, setCollapsed] = useState(true);
 

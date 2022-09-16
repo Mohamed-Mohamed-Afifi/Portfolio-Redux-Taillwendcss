@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import { Footer } from '../subComponent/footer';
-import Nave from '../subComponent/nav';
+import { Footer } from '../subComponent/footer.tsx';
+import Nave from '../subComponent/nav.tsx';
 export const Home = () => {
     // const [collapsed, setCollapsed] = useState(true);
 

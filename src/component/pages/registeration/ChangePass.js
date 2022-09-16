@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const ChangePass = () => {
     const router=useNavigate()
