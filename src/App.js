@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './styles/main.css'
 // import { Button } from 'reactstrap'
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './component/pages/Home';

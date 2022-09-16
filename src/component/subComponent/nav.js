@@ -8,6 +8,7 @@ const Nave = () => {
     // const [collapsed, setCollapsed] = useState(true);
 
     // const toggleNavbar = () => setCollapsed(!collapsed);
+    let count='2';
   return (
     <Navbar color="faded" light className='navbar-expand-lg container'>
         <div className='brand'>Afifiy</div>
@@ -17,7 +18,10 @@ const Nave = () => {
             <NavLink to='Contact'>Contact</NavLink>  
         </div>
         <div className='log d-flex flex-row justify-center items-center'>
-            <FontAwesomeIcon icon={faShoppingCart}/>
+            <div className='chartNum'>
+            <FontAwesomeIcon icon={faShoppingCart} className='chart'/>
+            {count &&<div className='count'>{count}</div>}
+            </div>
             {true ?<LogsBtn/> :<FontAwesomeIcon icon={faUser}/>}
         </div>
     </Navbar>

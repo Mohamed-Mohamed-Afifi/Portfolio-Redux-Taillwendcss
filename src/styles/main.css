@@ -1,0 +1,15 @@
+.chartNum {
+  position: relative;
+}
+.chartNum .count {
+  position: absolute;
+  top: 12px;
+  right: -2px;
+  color: #0dcaf0;
+  background-color: gray;
+  font-weight: bold;
+  font-size: 0.6rem;
+  border-radius: 50%;
+  width: 12px;
+  height: 14px;
+}/*# sourceMappingURL=main.css.map */
