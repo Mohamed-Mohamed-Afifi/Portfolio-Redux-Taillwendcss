@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Navbar} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart,faUser } from '@fortawesome/free-solid-svg-icons';
 import LogsBtn from './LogsBtn.tsx';
+import { useSelector } from 'react-redux';
+import User from './User';
+import UserIcon from './UserIcon';
 const Nave = () => {
     // const [collapsed, setCollapsed] = useState(true);
 
     // const toggleNavbar = () => setCollapsed(!collapsed);
     let count='2';
+    let verfiedUser=useSelector(state=>state.authoUser.validUser)
+    let [apper,setApper]=useState(false)
+
   return (
     <Navbar color="faded" light className='navbar-expand-lg container'>
         <div className='brand'>Afifiy</div>
@@ -22,7 +28,7 @@ const Nave = () => {
             <FontAwesomeIcon icon={faShoppingCart} className='chart'/>
             {count &&<div className='count'>{count}</div>}
             </div>
-            {true ?<LogsBtn/> :<FontAwesomeIcon icon={faUser}/>}
+            {!verfiedUser ?<LogsBtn/> :<button className='user__menu' onClick={()=>setApper((prev)=>{return !prev})}><UserIcon state={apper}/></button>}
         </div>
     </Navbar>
   )

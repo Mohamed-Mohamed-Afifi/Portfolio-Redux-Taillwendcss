@@ -14,7 +14,8 @@ import ForgetPass from './component/pages/registeration/ForgetPass';
 import Register from './component/pages/registeration/Regeister';
 import { ChangePass } from './component/pages/registeration/ChangePass';
 import SharedLayout from './component/pages/Layouts/SharedLayout';
-function App() {
+import Settings from './component/pages/protectRoutes/Settings';
+const App:React.FC=()=> {
   return (
     <div className="App">
       <Routes>
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<SharedLayout/>} />
           <Route path='Products' element={<Products />} />
           <Route path='Products/:ProductId' element={<Singleproduct />} />
+          <Route path='settings' element={<Settings />} />
           <Route path='Contact' element={<Contact />} />
           <Route path='login' element={<Login />}/>
           <Route path='register' element={<Register />}/>

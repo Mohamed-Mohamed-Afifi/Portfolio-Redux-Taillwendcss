@@ -12,4 +12,13 @@
   border-radius: 50%;
   width: 12px;
   height: 14px;
+}
+
+.user__menu {
+  position: relative;
+}
+.user__menu .user__dropdown.show {
+  position: absolute;
+  right: -100%;
+  transition: all 0.35s ease-in-out;
 }/*# sourceMappingURL=main.css.map */

@@ -13,3 +13,11 @@
         height: 14px;
     }
 }
+.user__menu{
+    position: relative;
+    .user__dropdown.show{
+        position: absolute;
+        right: -100%;
+        transition: all .35s ease-in-out;
+    }
+}

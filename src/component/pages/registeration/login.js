@@ -1,27 +1,39 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { getAccessToken } from '../../../redux/Autorization/AuthLogin'
 
 export const Login = () => {
   const router=useNavigate()
+  const dispatch=useDispatch()
+  let verfiedUser=useSelector(state=>state.authoUser.validUser)
+  const [identifier,setIdentifier]=useState(null)
+  const [password,setpassword]=useState(null)
+  let identifierRef=useRef();
+  let passwordRef=useRef();
+  console.log(verfiedUser)
   const handelSubmit=(e)=>{
     e.preventDefault();
-    // Check on Email
-    // Check on password
-    if(true){
-      router('/')
-    }
+    dispatch(getAccessToken({"identifier":`${identifier}`,"password": `${password}`}))
   }
+// Debounce for limit render
+const identifierCheck=async(e)=>{
+    setIdentifier(e.target.value)
+}
+const passwordCheck=async(e)=>{
+    setpassword(e.target.value)
+}
   return (
-    <div className='container'>
-    <form className='mx-auto w-full md:w-60' onSubmit={(e)=>handelSubmit(e)}>
-    <input type='email' name='email'  placeholder='Your Email'/>
-    <input type='password' name='password'  placeholder='Your Password'/>
-    <button type='submit'>submit</button>
-    </form>
-        <div className='logLinks d-flex flex-col'>
-        <NavLink to='/register'>Signup</NavLink>
-        <NavLink to='/resetPasseord'>Forget Password ?</NavLink>
+    <div className='container h-80 d-flex justify-center align-items-center'>
+    <form className='mx-auto w-full md:w-4/12 d-flex flex-col' onSubmit={(e)=>handelSubmit(e)}>
+    <input type='email' name='email'  placeholder='Your Email' className='mb-2' onChange={(e)=>identifierCheck(e)}/>
+    <input type='password' name='password'  placeholder='Your Password' className='mb-2'onChange={(e)=>passwordCheck(e)}/>
+    <button type='submit' className='border-2 bg-slate-500'>submit</button>
+    <div className='logLinks d-flex flex-col'>
+        <NavLink to='/register' className='self-start decoration-transparent'>Signup</NavLink>
+        <NavLink to='/resetPasseord' className='self-start decoration-transparent'>Forget Password ?</NavLink>
        </div>
+    </form>
     </div>
   )
 }

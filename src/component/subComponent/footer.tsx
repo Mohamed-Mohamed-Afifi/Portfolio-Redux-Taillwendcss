@@ -5,10 +5,15 @@ export const Footer = () => {
   //   name:string,
   //   age?:number
   // }
-  // let Fperson:Person={
-  //   name:"mohamed",
-  //   age:20
+  // type girls=Person &{
+  //   id:string
   // }
+  // let Fperson:girls={
+  //   name:"mohamed",
+  //   age:20,
+  //   id:"4544"
+  // }
+  // console.log(Fperson)
   // let arr:Person[];
   // arr=[
   //   {
@@ -19,10 +24,23 @@ export const Footer = () => {
   //     }
   // ]
   // console.log(arr)
-const printName=(name:string)=>{
-  console.log(name)
+// const printName=(name:string)=>{
+//   console.log(name)
+// }
+// printName("mohamed")
+interface Person{
+  name:string,
+  age:number
 }
-printName("mohamed")
+interface Members extends Person{
+  id:string
+}
+let Fmamber:Members={
+  name:"mohmaed",
+  age:22,
+  id:"1500"
+}
+console.log(Fmamber)
   return (
     <div className='footer bg-slate-500 d-flex p-3'>
         <div className='policy'>By Mo3fifiy 2022 </div>
