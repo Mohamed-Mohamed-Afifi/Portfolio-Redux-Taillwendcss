@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { AuthLogout } from "./Logout";
 
 export const getAccessToken=createAsyncThunk('/login',async(data)=>{
     console.log(data,"consol")
@@ -10,10 +11,10 @@ export const getAccessToken=createAsyncThunk('/login',async(data)=>{
 export const getAuthorzied=createSlice({
     name:'Autho',
     initialState:{
-        accessToken:`Bearer ${localStorage.getItem('userToken')}`,
+        accessToken:`Bearer ${localStorage.getItem('userToken')??''}`,
         loading:false,
         error:false,
-        validUser:false
+        validUser:localStorage.getItem('validUserToken')??false
     },
     extraReducers:{
         [getAccessToken.pending]:(state)=>{
@@ -22,9 +23,23 @@ export const getAuthorzied=createSlice({
         [getAccessToken.fulfilled]:(state,{payload})=>{
             state.loading=false
             state.validUser=true
+            localStorage.setItem('validUserToken',true)
             localStorage.setItem('userToken',payload.token)
         },
         [getAccessToken.rejected]:(state)=>{
+            state.error=true
+        },
+        [AuthLogout.pending]:(state)=>{
+            state.loading=true
+        },
+        [AuthLogout.fulfilled]:(state)=>{
+            state.loading=false;
+            state.validUser=false
+            localStorage.removeItem('validUserToken')
+            localStorage.removeItem('userToken')
+            console.log("watcher logout")
+        },
+        [AuthLogout.rejected]:(state)=>{
             state.error=true
         },
     },

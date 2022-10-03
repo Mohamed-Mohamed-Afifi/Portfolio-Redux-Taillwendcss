@@ -9,6 +9,7 @@ const UserIcon = ({state}) => {
     //         setState(false)
     //     }
     // }
+    console.log("form userIcon")
   return (
     <>
         <FontAwesomeIcon icon={faUser} className="mx-2"/><User status={state}/>
@@ -16,4 +17,4 @@ const UserIcon = ({state}) => {
   )
 }
 
-export default UserIcon
+export default React.memo(UserIcon)

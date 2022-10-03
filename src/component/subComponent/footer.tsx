@@ -28,19 +28,19 @@ export const Footer = () => {
 //   console.log(name)
 // }
 // printName("mohamed")
-interface Person{
-  name:string,
-  age:number
-}
-interface Members extends Person{
-  id:string
-}
-let Fmamber:Members={
-  name:"mohmaed",
-  age:22,
-  id:"1500"
-}
-console.log(Fmamber)
+// interface Person{
+//   name:string,
+//   age:number
+// }
+// interface Members extends Person{
+//   id:string
+// }
+// let Fmamber:Members={
+//   name:"mohmaed",
+//   age:22,
+//   id:"1500"
+// }
+// console.log(Fmamber)
   return (
     <div className='footer bg-slate-500 d-flex p-3'>
         <div className='policy'>By Mo3fifiy 2022 </div>

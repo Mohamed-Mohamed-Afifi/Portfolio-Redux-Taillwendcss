@@ -6,15 +6,18 @@ import { getAccessToken } from '../../../redux/Autorization/AuthLogin'
 export const Login = () => {
   const router=useNavigate()
   const dispatch=useDispatch()
-  let verfiedUser=useSelector(state=>state.authoUser.validUser)
+  let {validUser}=useSelector(state=>state.authoUser)
   const [identifier,setIdentifier]=useState(null)
   const [password,setpassword]=useState(null)
   let identifierRef=useRef();
   let passwordRef=useRef();
-  console.log(verfiedUser)
   const handelSubmit=(e)=>{
     e.preventDefault();
     dispatch(getAccessToken({"identifier":`${identifier}`,"password": `${password}`}))
+    console.log(validUser,"from submit")
+    if(validUser){
+      router('/')
+    }
   }
 // Debounce for limit render
 const identifierCheck=async(e)=>{

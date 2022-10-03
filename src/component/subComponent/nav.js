@@ -7,6 +7,7 @@ import LogsBtn from './LogsBtn.tsx';
 import { useSelector } from 'react-redux';
 import User from './User';
 import UserIcon from './UserIcon';
+import { Fragment } from 'react';
 const Nave = () => {
     // const [collapsed, setCollapsed] = useState(true);
 
@@ -28,7 +29,7 @@ const Nave = () => {
             <FontAwesomeIcon icon={faShoppingCart} className='chart'/>
             {count &&<div className='count'>{count}</div>}
             </div>
-            {!verfiedUser ?<LogsBtn/> :<button className='user__menu' onClick={()=>setApper((prev)=>{return !prev})}><UserIcon state={apper}/></button>}
+            {!verfiedUser ?<LogsBtn/> :<Fragment><button className='user__menu' onClick={()=>setApper((prev)=>{return !prev})}><UserIcon state={apper}/></button></Fragment>}
         </div>
     </Navbar>
   )

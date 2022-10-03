@@ -19,16 +19,16 @@ const App:React.FC=()=> {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Protected><Home /></Protected>}>
+        <Route path='/' element={<Home />}>
           <Route index element={<SharedLayout/>} />
           <Route path='Products' element={<Products />} />
           <Route path='Products/:ProductId' element={<Singleproduct />} />
           <Route path='settings' element={<Settings />} />
           <Route path='Contact' element={<Contact />} />
-          <Route path='login' element={<Login />}/>
-          <Route path='register' element={<Register />}/>
-          <Route path='resetPasseord' element={<ForgetPass />}/>
-          <Route path='changePassword' element={<ChangePass />}/>
+          <Route path='login' element={<Protected><Login /></Protected>}/>
+          <Route path='register' element={<Protected><Register /></Protected>}/>
+          <Route path='resetPasseord' element={<Protected><ForgetPass /></Protected>}/>
+          <Route path='changePassword' element={<Protected><ChangePass /></Protected>}/>
         </Route>
           <Route path='*' element={<ErrorPage />} />
       </Routes>
