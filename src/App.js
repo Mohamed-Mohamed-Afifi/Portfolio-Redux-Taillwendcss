@@ -9,21 +9,23 @@ import Contact from './component/pages/Contact';
 import { Login } from './component/pages/registeration/login';
 import Protected from './component/pages/protectRoutes/Protected';
 import ErrorPage from './component/pages/ErrorPage';
-import Singleproduct from './component/pages/Singleproduct';
+import SingleproductPage from './component/pages/SingleproductPage';
 import ForgetPass from './component/pages/registeration/ForgetPass';
 import Register from './component/pages/registeration/Regeister';
 import { ChangePass } from './component/pages/registeration/ChangePass';
 import SharedLayout from './component/pages/Layouts/SharedLayout';
 import Settings from './component/pages/protectRoutes/Settings';
-const App:React.FC=()=> {
+import Admin from './component/pages/protectRoutes/Admin';
+import Product from './component/subComponent/Product';
+const App=()=> {
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}>
           <Route index element={<SharedLayout/>} />
-          <Route path='Products' element={<Products />} />
-          <Route path='Products/:ProductId' element={<Singleproduct />} />
-          <Route path='settings' element={<Settings />} />
+          <Route path='Products' element={<Products><Product/></Products>} />
+          <Route path='Products/:ProductId' element={<SingleproductPage />} />
+          <Route path='settings' element={<Admin> <Settings /> </Admin>} />
           <Route path='Contact' element={<Contact />} />
           <Route path='login' element={<Protected><Login /></Protected>}/>
           <Route path='register' element={<Protected><Register /></Protected>}/>

@@ -1,8 +1,12 @@
 import React from 'react'
-
-const Admin = () => {
+import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+const Admin = ({children}) => {
+  const {validUser}=useSelector(state=>state.authoUser)
   return (
-    <div>Admin</div>
+    <>
+        {validUser ?children:<Navigate to='/'/>}
+    </>
   )
 }
 

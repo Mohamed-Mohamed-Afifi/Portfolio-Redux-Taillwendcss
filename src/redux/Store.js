@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import getProducts from "./Products/projectSlice";
+import  productSlice from "./Products/productSlice";
 import RegSlice from "./VerifyForm/ValidRegisterSlice";
 import LoginSlice from "./VerifyForm/VaildLoignSlice";
 import ForgetSlice from "./VerifyForm/ValidForgetPassword";
@@ -9,7 +9,7 @@ import LogoutSlice from "./Autorization/Logout";
 
 export const Store = configureStore({
     reducer: {
-        products: getProducts,
+        products: productSlice,
         register:RegSlice,
         login:LoginSlice,
         forgetpass:ForgetSlice,
